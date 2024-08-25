@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{%block main_content%}
+<section class="container">
+    <div class="row justify-content-around text-center mt-3 ">
+        <div class="col sm-8">
+            <h2>CRUD Project Using Bootstrap & Python</h2>
+        </div>
+    </div>
+    <div class="row justify-content-around mt-1">
+        <div class="clo-sm-8">
+            <a href="{% url 'add_book'%}" class="btn btn-primary float-end">Add</a>
+        </div>
+    </div>
+    <div class="row justify-content-around text-center mt-3 ">
+        <div class="col sm-8">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col">Sr.No</th>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Book Name</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">MRP Price</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for u in UPSCdata%}
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{u.subject}}</td>
+                      <td>{{u.bookname}}</td>
+                      <td>{{u.authorname}}</td>
+                      <td>{{u.price}}</td>
+                      <td>
+                        <a href="/del_book/{{u.id}}"><span class="btn btn-danger">Delete</span></a>
+                        <a href="/update_book/{{u.id}}"><span class="btn btn-success">Update</span></a>
+                      </td>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+
+{%endblock main_content%}

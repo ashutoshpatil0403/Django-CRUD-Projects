@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Update Book{% endblock title %}
+{%block main_content%}
+<section class="container">
+    <div class="row justify-content-around text-center mt-3 ">
+        <div class="col sm-8">
+            <h2>Update Old Book</h2>
+        </div>
+    </div>
+    <div class="row justify-content-around mt-3 ">
+        <div class="col sm-8">
+            <form action="" method="post" class="p-3 rounded shadow">
+                {%csrf_token%}
+                {{upscform.as_p}}
+                <div class="justify-content-around text-center">
+                <input type="submit" value="Submit" class="btn btn-success ">
+            </div>
+            </form>
+        </div>    
+    </div>
+   
+ 
+</section>
+
+{%endblock main_content%}
